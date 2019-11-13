@@ -16,6 +16,7 @@ from sklearn import metrics
 from sklearn.metrics  import accuracy_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
+from sklearn.ensemble import RandomForestClassifier
 
 
 #CLASSIFICATION METHOD
@@ -29,10 +30,15 @@ def Classifications(X_train_word_features, test_features, y_train, y_test, metho
     clf2=svm_classifier.fit(X_train_word_features, y_train)
     predicted2=clf2.predict(test_features)
     
+    #Random Forest
+    random_forest = RandomForestClassifier()
+    clf3=random_forest.fit(X_train_word_features, y_train)
+    predicted3=clf3.predict(test_features)
+    
     print("\nAccuracies by using ",method_name)
     print("Accuracy with Naive Bayes Classifier: ", accuracy_score(y_test,predicted))
     print("Accuracy with SVM: ", accuracy_score(y_test,predicted2))
-
+    print("Accuracy with Random Forest: ", accuracy_score(y_test, predicted3))
 
     return
 
