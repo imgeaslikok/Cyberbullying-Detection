@@ -55,13 +55,13 @@ positivity=df.Positivity
 
 #DATA PREPROCESSING
 comments_list = []
+turkish_stop_words = stopwords.words('turkish')
 for comment in df.Comments:
     comment=comment.lower()
     turkish_letters = '[^a-zçğışöü]'
     comment = re.sub(turkish_letters, ' ', comment)
     comment = re.sub(r'[0-9]+', '', comment)
     comment = comment.split()
-    turkish_stop_words = stopwords.words('turkish')
     comment = [word for word in comment if not word in turkish_stop_words]
     comment = " ".join(comment)
     comments_list.append(comment)
