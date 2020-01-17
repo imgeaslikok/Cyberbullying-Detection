@@ -77,23 +77,3 @@ def BinaryWeighting (x_train, x_test):
     test_features = count_vec.transform(x_test).toarray()
 
     return X_train_word_features, test_features
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
